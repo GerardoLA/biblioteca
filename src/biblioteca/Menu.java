@@ -25,7 +25,7 @@ public class Menu {
 
 	
 	public static void  MenuPrestamo() {
-		System.out.println("Menu prestamos");
+		System.out.println("Menu préstamos");
 			System.out.println(" 1.- Realizar préstamo");
 			;
 		}
