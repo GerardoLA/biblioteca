@@ -27,7 +27,7 @@ public class Conector {
 		this.con = con;
 	}
 
-	public void cerra() throws SQLException {
+	public void cerrar() throws SQLException {
 		con.close();
 	}
 
