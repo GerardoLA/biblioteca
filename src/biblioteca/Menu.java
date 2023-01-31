@@ -39,7 +39,11 @@ public class Menu {
 		
 	public static void mostrarMenusocio(){
 	System.out.println("Ver socios");	
-	}
+	System.out.println("1.- Insertar socios");
+	System.out.println("2.- Eliminar Socios");
+	System.out.println("3.- Ver socios");
+}
+	
 
 	
 	public static void  mostrarMenuPrestamo() {
