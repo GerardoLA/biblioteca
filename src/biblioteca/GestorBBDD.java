@@ -29,12 +29,18 @@ public class GestorBBDD extends Conector{
 		super.cerrar();
 
 }
-	public void getLibro(int id) throws SQLException {
+	public Libro getLibro(int id) throws SQLException {
 		super.conectar();
-		String senteciaSelect= "SELECT* from libros where id=?";
+		String sentenciaSelect= "SELECT * FROM libros WHERE id=?";
 		pst.setInt(1, id);
 		Libro libro = new Libro();
 		ResultSet resultado = pst.executeQuery(sentenciaSelect);
+		libro.setId(resultado.getInt(id));
+		libro.setTitulo(resultado.getString("titulo"));
+		libro.setAutor(resultado.getString("autor"));
+		libro.setNum_pag(resultado.getInt("num_pag"));
 		
+		return libro;
+	
 	}
 }
