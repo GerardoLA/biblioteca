@@ -11,10 +11,20 @@ public class GestorLibros {
 			opcion = Integer.parseInt(scan.nextLine());
 			
 			switch (opcion) {
-			case Menu
+			case Menu.INSERTAR_LIBRO:
+				break;
+			case Menu.MODIFICAR_LIBRO:
+				break;
+			case Menu.VER_LIBRO:
+				break;
+			case Menu.ELIMINAR_LIBRO:
+				break;
+			case Menu.SALIR:
+				break;
 			}
 			
-		}while(opcion!=S);
+			
+		}while(opcion!=Menu.SALIR);
 	}
 
 }
