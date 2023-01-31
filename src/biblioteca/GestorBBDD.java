@@ -43,4 +43,11 @@ public class GestorBBDD extends Conector{
 		return libro;
 	
 	}
+	
+//	public void modificar(Libro libro) {
+//		super.conectar();
+//		pst = con.prepareStatement("UPDATE libros)
+//	TO BE CONTINUED..
+	
+	
 }
