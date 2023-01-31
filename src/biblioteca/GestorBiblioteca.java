@@ -8,26 +8,29 @@ public class GestorBiblioteca {
 		int opcion_menu;
 
 		do {
-
+			opcion_menu = Integer.parseInt(scan.nextLine());
 			switch (opcion_menu) {
+			
+			
 			case Menu.GESTIONAR_LIBROS:
 				GestorLibros.run(scan);
 				break;
+				
 			case Menu.GESTIONAR_SOCIOS:
-				GestorSocio
-				System.out.println("segunda opcion seleccionada\n");
+				GestorSocios.run(scan);
 				break;
-			case OPCION_TRES:
-				System.out.println("tercera opcion seleccionada\n");
+				
+			case Menu.GESTIONAR_PRESTAMOS:
+				
 				break;
-			case SALIR:
+			case Menu.SALIR:
 				System.out.println("ADIOS");
 				break;
 			default:
 				System.out.println("Opcion incorrecta!");
 			}
 
-		} while (opcion_menu != SALIR);
+		} while (opcion_menu != 0);
 		scan.close();
 		
 		
