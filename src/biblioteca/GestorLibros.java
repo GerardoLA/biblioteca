@@ -33,7 +33,7 @@ public class GestorLibros {
 			case Menu.VER_LIBROS:
 				
 				ArrayList<Libro>libros = new ArrayList<Libro>();
-				Visor.mostrarLibros(libros);
+				Visor.mostrarLibros(gestor.getLibros());
 				
 				break;
 			case Menu.ELIMINAR_LIBRO:
