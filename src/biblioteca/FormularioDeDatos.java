@@ -24,9 +24,20 @@ public class FormularioDeDatos {
 		System.out.println("introduce el titulo nuevo");
 		libro.setTitulo(scan.nextLine());
 		
-		System.out.println("Introduce ");
+		System.out.println("Introduce el autor nuevo");
+		libro.setAutor(scan.nextLine());
+		
+		System.out.println("Introduce el número de páginas" );
+		libro.setNum_pag(Integer.parseInt(scan.nextLine()));
 		
 		
 		return libro;
+	}
+	
+	public static int pedirIdLibro(Scanner scan) {
+		System.out.println("Dime id del libro");
+		int id = Integer.parseInt(scan.nextLine()); //variable donde guardamos
+		
+		return id;
 	}
 }

@@ -3,10 +3,8 @@ package biblioteca;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Scanner;
 
 public class GestorBBDD extends Conector{
-	Scanner scan=new Scanner(System.in);
 	PreparedStatement pst;
 	
 	public void insertarLibro(Libro libro) throws SQLException{
@@ -44,10 +42,17 @@ public class GestorBBDD extends Conector{
 	
 	}
 	
-//	public void modificar(Libro libro) {
-//		super.conectar();
-//		pst = con.prepareStatement("UPDATE libros)
-//	TO BE CONTINUED..
+	public void modificarLibro(Libro libro) throws SQLException {
+		super.conectar();
+		pst = con.prepareStatement("UPDATE libros set titulo = ?, autor = ?, num_pag =?");
+		pst.setString(1, libro.getAutor());
+		pst.setString(2, libro.getTitulo());
+		pst.setInt(3, libro.getNum_pag());
+		
+		pst.executeUpdate();
+		super.cerrar();
+	}
 	
 	
 }
+
