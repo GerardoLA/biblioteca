@@ -1,10 +1,11 @@
 package biblioteca;
 
+import java.sql.SQLException;
 import java.util.Scanner;
 
 public class GestorBiblioteca {
 	Scanner scan= new Scanner (System.in);
-	public  void run() {
+	public  void run() throws SQLException {
 		int opcion_menu;
 
 		do {

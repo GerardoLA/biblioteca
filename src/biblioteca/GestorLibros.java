@@ -30,6 +30,7 @@ public class GestorLibros {
 				
 				break;
 			case Menu.VER_LIBROS:
+				
 				break;
 			case Menu.ELIMINAR_LIBRO:
 				gestor.eliminarLibro(FormularioDeDatos.pedirIdLibro(scan));
