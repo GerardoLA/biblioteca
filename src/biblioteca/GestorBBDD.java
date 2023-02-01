@@ -3,6 +3,7 @@ package biblioteca;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class GestorBBDD extends Conector{
 	PreparedStatement pst;
@@ -51,6 +52,14 @@ public class GestorBBDD extends Conector{
 		
 		pst.executeUpdate();
 		super.cerrar();
+	}
+	
+	public ArrayList<Libro> getLibros(){
+		ArrayList<Libro>libros=new ArrayList<Libro>();
+		String senteciaSelect= "Select * from libros";
+		
+		return libros;
+		
 	}
 	
 	
