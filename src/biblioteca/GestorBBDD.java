@@ -8,6 +8,27 @@ import java.util.ArrayList;
 public class GestorBBDD extends Conector{
 	PreparedStatement pst;
 	
+	public void insertarSocio(Socio socio) throws SQLException {
+		super.conectar();
+		pst = con.prepareStatement("INSERT INTO VALUES(null,?,?;?,?,?)");
+		
+		pst.setString(1,socio.getNombre());
+		pst.setString(2,socio.getDireccion());
+		pst.setString(3,socio.getPoblacion());
+		pst.setString(4,socio.getProvincia());
+		pst.setString(5,socio.getDni());
+		
+		pst.execute();
+		super.cerrar();	
+	}
+	
+	public void eliminarSocio(int id) throws SQLException {
+		super.conectar();
+		pst= con.prepareStatement("DELETE from socios where id=?");
+		pst.setInt(1, id);
+		super.cerrar();
+	}
+	
 	public void insertarLibro(Libro libro) throws SQLException{
 		super.conectar();
 		pst = con.prepareStatement("INSERT INTO libros values(null,?,?,?)");

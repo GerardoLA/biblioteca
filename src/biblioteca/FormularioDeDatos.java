@@ -4,6 +4,27 @@ import java.util.Scanner;
 
 public class FormularioDeDatos {
 	
+	public static Socio pedirDatos(Scanner scan) {
+		Socio socio = new Socio();
+		
+		System.out.println("Introduce el nombre del socio: ");
+		socio.setNombre(scan.nextLine());
+		
+		System.out.println("Introduce la dirección: ");
+		socio.setDireccion(scan.nextLine());
+		
+		System.out.println("introduce la población");
+		socio.setDireccion(scan.nextLine());
+		
+		System.out.println("Introduce la provincia: ");
+		socio.setPoblacion(scan.nextLine());
+		
+		System.out.println("Introduce el dni: ");
+		socio.setDni(scan.nextLine());
+		
+		return socio;
+			}
+	
 	public static Libro pediDatosLibro(Scanner scan) {
 		Libro libro = new Libro();
 		
@@ -32,6 +53,13 @@ public class FormularioDeDatos {
 		
 		
 		return libro;
+	}
+	
+	public static int pedirIdSocio(Scanner scan) {
+		System.out.println("Introduce Id de socio: ");
+		int id = Integer.parseInt(scan.nextLine());
+		
+		return id;
 	}
 	
 	public static int pedirIdLibro(Scanner scan) {
