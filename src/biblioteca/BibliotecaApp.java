@@ -7,7 +7,7 @@ public class BibliotecaApp {
 
 	public static void main(String[] args) throws SQLException {
 		Scanner scan = new Scanner (System.in);
-		GestorLibros.run(scan);
+		GestorBiblioteca.run(scan);
 		
 	}
 

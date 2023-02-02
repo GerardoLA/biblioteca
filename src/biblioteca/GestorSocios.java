@@ -28,7 +28,8 @@ public class GestorSocios {
 				socio = gestor.getSocio(idSocio);
 				Visor.mostrarSocio(socio);
 				FormularioDeDatos.modificarDatos(socio, scan);
-				gestor.mo
+				gestor.modificarSocio(socio);
+				System.out.println("Socio modificado");
 				
 				
 				break;

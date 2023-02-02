@@ -4,11 +4,12 @@ import java.sql.SQLException;
 import java.util.Scanner;
 
 public class GestorBiblioteca {
-	Scanner scan= new Scanner (System.in);
-	public  void run() throws SQLException {
+
+	public static void run(Scanner scan) throws SQLException {
 		int opcion_menu;
 
 		do {
+			Menu.mostrarmenuPrincipal();
 			opcion_menu = Integer.parseInt(scan.nextLine());
 			switch (opcion_menu) {
 			

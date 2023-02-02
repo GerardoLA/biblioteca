@@ -33,8 +33,10 @@ public class Menu {
 	public static void mostrarmenuLibros() {
 		System.out.println("Menu libros");
 		System.out.println("1.- Insertar Libros");
-		System.out.println("2.- Eliminar Socios");
-		System.out.println("3.- Ver libros");
+		System.out.println("2.- Eliminar Libros");
+		System.out.println("3.- Modificar libros");
+		System.out.println("4.- Ver libros");
+		
 	}
 		
 	public static void mostrarMenusocio(){
