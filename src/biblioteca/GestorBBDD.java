@@ -46,17 +46,28 @@ public class GestorBBDD extends Conector{
 	public void modificarLibro(Libro libro) throws SQLException {
 		super.conectar();
 		pst = con.prepareStatement("UPDATE libros set titulo = ?, autor = ?, num_pag =?");
-		pst.setString(1, libro.getAutor());
-		pst.setString(2, libro.getTitulo());
+		pst.setString(1, libro.getTitulo());
+		pst.setString(2, libro.getAutor());
 		pst.setInt(3, libro.getNum_pag());
 		
 		pst.executeUpdate();
 		super.cerrar();
 	}
 	
-	public ArrayList<Libro> getLibros(){
+	public ArrayList<Libro> getLibros() throws SQLException{
 		ArrayList<Libro>libros=new ArrayList<Libro>();
 		String senteciaSelect= "Select * from libros";
+		
+		ResultSet resultado = pst.executeQuery();
+		
+		while(resultado.next()) {
+			Libro libro = new Libro();
+			libro.setId(resultado.getInt("id"));
+			libro.setTitulo(resultado.getString("titulo"));
+			libro.setAutor(resultado.getString("autor"));
+			libro.setNum_pag(resultado.getInt("num_pag"));
+			libros.add(libro);
+		}
 		
 		return libros;
 		
