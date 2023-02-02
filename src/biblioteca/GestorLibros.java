@@ -32,8 +32,6 @@ public class GestorLibros {
 					
 					break;
 				case Menu.VER_LIBROS:
-					
-					ArrayList<Libro>libros = new ArrayList<Libro>();
 					Visor.mostrarLibros(gestor.getLibros());
 					
 					break;
