@@ -28,6 +28,10 @@ public class GestorSocios {
 			case Menu.VER_SOCIO:
 				break;
 			case Menu.ELIMINAR_SOCIO:
+				
+				gestor.eliminarSocio(FormularioDeDatos.pedirIdSocio(scan));
+				System.out.println("Socio eliminado");
+				
 				break;
 			case Menu.SALIR:
 				break;
