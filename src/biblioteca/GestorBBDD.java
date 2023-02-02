@@ -87,6 +87,16 @@ public class GestorBBDD extends Conector{
 		super.cerrar();
 	}
 	
+	public void modificarSocio(Socio socio) throws SQLException {
+		super.conectar();
+		pst = con.prepareStatement("UPDATE socios set nombre=?,direccion=?,poblacion=?,provincia=?,dni=?");
+		pst.setString(1, socio.getNombre());
+		pst.setString(2, socio.getDireccion());
+		pst.setString(3, socio.getPoblacion());
+		pst.setString(4, socio.getProvincia());
+		
+	}
+	
 	public ArrayList<Libro> getLibros() throws SQLException{
 		ArrayList<Libro>libros=new ArrayList<Libro>();
 		String senteciaSelect= "Select * from libros";

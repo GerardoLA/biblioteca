@@ -26,7 +26,9 @@ public class GestorSocios {
 			case Menu.MODIFICAR_SOCIO:
 				int idSocio = FormularioDeDatos.pedirIdSocio(scan);
 				socio = gestor.getSocio(idSocio);
-				Visor.
+				Visor.mostrarSocio(socio);
+				FormularioDeDatos.modificarDatos(socio, scan);
+				gestor.mo
 				
 				
 				break;
