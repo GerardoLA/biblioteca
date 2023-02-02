@@ -73,9 +73,15 @@ public class GestorBBDD extends Conector{
 		pst= con.prepareStatement(sentenciaSelect);
 		pst.setInt(1, id);
 		Socio socio = new Socio();
+		ResultSet resultado = pst.executeQuery(sentenciaSelect);
+		socio.setId(resultado.getInt(id));
+		socio.setNombre(resultado.getString("nombre"));
+		socio.setDireccion(resultado.getString("direccion"));
+		socio.setPoblacion(resultado.getString("poblacion"));
+		socio.setProvincia(resultado.getString("provincia"));
+		
+		socio.setDni(resultado.getString("dni"));
 		super.cerrar();
-		
-		
 		
 		return socio;
 	}

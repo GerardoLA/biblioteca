@@ -9,6 +9,7 @@ public class Socio {
 	}
 	private int id;
 	private String nombre;
+	private String apellido;
 	private String direccion;
 	private String poblacion;
 	private String provincia;
@@ -16,13 +17,22 @@ public class Socio {
 	
 	
 	
-	public Socio(int id, String nombre, String direccion, String poblacion, String provincia, String dni) {
+	public Socio(int id, String nombre,String apellido, String direccion, String poblacion, String provincia, String dni) {
 		this.id = id;
 		this.nombre = nombre;
+		this.apellido = apellido;
 		this.direccion = direccion;
 		this.poblacion = poblacion;
 		this.provincia = provincia;
 		this.dni = dni;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
 	}
 
 	public Socio() {
