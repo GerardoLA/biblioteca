@@ -64,6 +64,18 @@ public class GestorBBDD extends Conector{
 	
 	}
 	
+	public Socio getSocio(int id) throws SQLException {
+		super.conectar();
+		String sentenciaSelect = "SELECT * FROM socios WHERE id=?";
+		pst.setInt(1, id);
+		Socio socio = new Socio();
+		super.cerrar();
+		
+		
+		
+		return socio;
+	}
+	
 	public void modificarLibro(Libro libro) throws SQLException {
 		super.conectar();
 		pst = con.prepareStatement("UPDATE libros set titulo = ?, autor = ?, num_pag =?");

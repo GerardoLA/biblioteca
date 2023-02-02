@@ -15,10 +15,13 @@ public class Visor {
 		System.out.println(libro);
 	}
 	
+	public static void mostrarSocio(Socio socio) {
+		System.out.println(socio);
+	}
+	
 	public static void  mostrarMensajes(String mensaje) {
 		System.out.println(mensaje);
-		
-		
+			
 	}
 
 }
