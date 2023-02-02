@@ -44,14 +44,16 @@ public class GestorBBDD extends Conector{
 	public void eliminarLibro(int id) throws SQLException {
 		super.conectar();
 		pst= con.prepareStatement("DELETE from libros where id=?");
-		
 		pst.setInt(1, id);
+		pst.execute();
+		
 		super.cerrar();
 
 }
 	public Libro getLibro(int id) throws SQLException {
 		super.conectar();
 		String sentenciaSelect= "SELECT * FROM libros WHERE id=?";
+		pst= con.prepareStatement(sentenciaSelect);
 		pst.setInt(1, id);
 		Libro libro = new Libro();
 		ResultSet resultado = pst.executeQuery(sentenciaSelect);
@@ -59,14 +61,16 @@ public class GestorBBDD extends Conector{
 		libro.setTitulo(resultado.getString("titulo"));
 		libro.setAutor(resultado.getString("autor"));
 		libro.setNum_pag(resultado.getInt("num_pag"));
+		super.cerrar();
 		
 		return libro;
-	
+		
 	}
 	
 	public Socio getSocio(int id) throws SQLException {
 		super.conectar();
 		String sentenciaSelect = "SELECT * FROM socios WHERE id=?";
+		pst= con.prepareStatement(sentenciaSelect);
 		pst.setInt(1, id);
 		Socio socio = new Socio();
 		super.cerrar();
@@ -76,13 +80,13 @@ public class GestorBBDD extends Conector{
 		return socio;
 	}
 	
-	public void modificarLibro(Libro libro) throws SQLException {
+	public void modificarLibro(Libro libro,int idLibro) throws SQLException {
 		super.conectar();
-		pst = con.prepareStatement("UPDATE libros set titulo = ?, autor = ?, num_pag =?");
+		pst = con.prepareStatement("UPDATE libros set titulo = ?, autor = ?, num_pag =? where id=?");
 		pst.setString(1, libro.getTitulo());
 		pst.setString(2, libro.getAutor());
 		pst.setInt(3, libro.getNum_pag());
-		
+		pst.setInt(4, idLibro);
 		pst.executeUpdate();
 		super.cerrar();
 	}
@@ -94,13 +98,14 @@ public class GestorBBDD extends Conector{
 		pst.setString(2, socio.getDireccion());
 		pst.setString(3, socio.getPoblacion());
 		pst.setString(4, socio.getProvincia());
-		
+		super.cerrar();
 	}
 	
 	public ArrayList<Libro> getLibros() throws SQLException{
 		ArrayList<Libro>libros=new ArrayList<Libro>();
-		String senteciaSelect= "Select * from libros";
-		
+		super.conectar();
+		String sentenciaSelect= "Select * from libros";
+		pst= con.prepareStatement(sentenciaSelect);
 		ResultSet resultado = pst.executeQuery();
 		
 		while(resultado.next()) {
@@ -111,7 +116,7 @@ public class GestorBBDD extends Conector{
 			libro.setNum_pag(resultado.getInt("num_pag"));
 			libros.add(libro);
 		}
-		
+		super.cerrar();
 		return libros;
 		
 	}

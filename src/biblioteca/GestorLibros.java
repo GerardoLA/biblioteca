@@ -8,7 +8,7 @@ public class GestorLibros {
 	public static void run(Scanner scan) throws SQLException {
 		
 		int opcion;
-		Libro libro;
+		Libro libro=new Libro();
 		GestorBBDD gestor = new GestorBBDD();
 		
 		do {
@@ -24,10 +24,8 @@ public class GestorLibros {
 				
 				case Menu.MODIFICAR_LIBRO:
 					int idLibro = FormularioDeDatos.pedirIdLibro(scan);
-					libro = gestor.getLibro(idLibro);
-					Visor.mostrarLibro(libro);
-					FormularioDeDatos.modificarDatos(libro, scan);
-					gestor.modificarLibro(libro);
+					libro=FormularioDeDatos.modificarDatos(libro, scan);
+					gestor.modificarLibro(libro,idLibro);
 					System.out.println("Libro modificado");
 					
 					break;

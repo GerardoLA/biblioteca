@@ -2,6 +2,11 @@ package biblioteca;
 
 public class Socio {
 
+	@Override
+	public String toString() {
+		return " id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", poblacion=" + poblacion
+				+ ", provincia=" + provincia + ", dni=" + dni ;
+	}
 	private int id;
 	private String nombre;
 	private String direccion;
