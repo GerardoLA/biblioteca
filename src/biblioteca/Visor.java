@@ -19,6 +19,12 @@ public class Visor {
 		System.out.println(socio);
 	}
 	
+	public static void mostrarSocios(ArrayList<Socio>socios) {
+		for (Socio socio : socios) {
+			System.out.println(socio);
+		}
+	}
+	
 	public static void  mostrarMensajes(String mensaje) {
 		System.out.println(mensaje);
 			
