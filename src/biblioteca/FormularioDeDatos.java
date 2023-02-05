@@ -10,14 +10,17 @@ public class FormularioDeDatos {
 		System.out.println("Introduce el nombre del socio: ");
 		socio.setNombre(scan.nextLine());
 		
+		System.out.println("Introduce el apellido: ");
+		socio.setApellido(scan.nextLine());
+		
 		System.out.println("Introduce la dirección: ");
 		socio.setDireccion(scan.nextLine());
 		
 		System.out.println("introduce la población");
-		socio.setDireccion(scan.nextLine());
+		socio.setPoblacion(scan.nextLine());
 		
 		System.out.println("Introduce la provincia: ");
-		socio.setPoblacion(scan.nextLine());
+		socio.setProvincia(scan.nextLine());
 		
 		System.out.println("Introduce el dni: ");
 		socio.setDni(scan.nextLine());
@@ -58,6 +61,9 @@ public class FormularioDeDatos {
 	public static Socio modificarDatos(Socio socio,Scanner scan) {
 		System.out.println("Introduce el nombre nuevo");
 		socio.setNombre(scan.nextLine());
+		
+		System.out.println("Introduce el apellido nuevo");
+		socio.setApellido(scan.nextLine());
 		
 		System.out.println("Introduce la dirección nueva: ");
 		socio.setDireccion(scan.nextLine());

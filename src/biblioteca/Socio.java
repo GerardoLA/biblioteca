@@ -2,11 +2,7 @@ package biblioteca;
 
 public class Socio {
 
-	@Override
-	public String toString() {
-		return " id=" + id + ", nombre=" + nombre + ", direccion=" + direccion + ", poblacion=" + poblacion
-				+ ", provincia=" + provincia + ", dni=" + dni ;
-	}
+	
 	private int id;
 	private String nombre;
 	private String apellido;
@@ -27,13 +23,7 @@ public class Socio {
 		this.dni = dni;
 	}
 
-	public String getApellido() {
-		return apellido;
-	}
-
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
-	}
+	
 
 	public Socio() {
 	}
@@ -50,6 +40,15 @@ public class Socio {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+	
 	public String getDireccion() {
 		return direccion;
 	}
@@ -75,7 +74,11 @@ public class Socio {
 		this.dni = dni;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return " id=" + id + ", nombre=" + nombre + ",apellido="+ apellido +", direccion=" + direccion + ", poblacion=" + poblacion
+				+ ", provincia=" + provincia + ", dni=" + dni ;
+	}
 	
 
 }

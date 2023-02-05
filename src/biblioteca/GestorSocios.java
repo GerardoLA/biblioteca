@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 public class GestorSocios {
 	public static void run(Scanner scan) throws SQLException {
+		
 		int opcion;
 		Socio socio = new Socio();
 		GestorBBDD gestor = new GestorBBDD();
@@ -20,21 +21,20 @@ public class GestorSocios {
 				socio = FormularioDeDatos.pedirDatos(scan);
 				gestor.insertarSocio(socio);
 				System.out.println("Socio nuevo añadido");
-				
 				break;
 				
 			case Menu.MODIFICAR_SOCIO:
 				int idSocio = FormularioDeDatos.pedirIdSocio(scan);
-				socio = gestor.getSocio(idSocio);
-				Visor.mostrarSocio(socio);
-				FormularioDeDatos.modificarDatos(socio, scan);
-				gestor.modificarSocio(socio);
+				socio = FormularioDeDatos.modificarDatos(socio, scan);
+				gestor.modificarSocio(socio,idSocio);
 				System.out.println("Socio modificado");
 				
+				break;
 				
+			case Menu.VER_SOCIOS:
+				Visor.mostrarSocios(gestor.getSocios());
 				break;
-			case Menu.VER_SOCIO:
-				break;
+				
 			case Menu.ELIMINAR_SOCIO:
 				
 				gestor.eliminarSocio(FormularioDeDatos.pedirIdSocio(scan));

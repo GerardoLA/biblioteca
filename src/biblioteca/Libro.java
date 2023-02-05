@@ -21,10 +21,7 @@ public class Libro {
 	public String getAutor() {
 		return autor;
 	}
-	@Override
-	public String toString() {
-		return "id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", num_pag=" + num_pag ;
-	}
+	
 	public void setAutor(String autor) {
 		this.autor = autor;
 	}
@@ -45,6 +42,9 @@ public class Libro {
 	public Libro() {
 		
 	}
-	
+	@Override
+	public String toString() {
+		return "id=" + id + ", titulo=" + titulo + ", autor=" + autor + ", num_pag=" + num_pag ;
+	}
 
 }

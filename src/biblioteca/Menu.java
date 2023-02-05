@@ -19,7 +19,7 @@ public class Menu {
 	public static final int INSERTAR_SOCIO = 1;
 	public static final int ELIMINAR_SOCIO = 2;
 	public static final int MODIFICAR_SOCIO = 3;
-	public static final int VER_SOCIO = 4 ;
+	public static final int VER_SOCIOS = 4 ;
 	
 	
 	
@@ -28,6 +28,7 @@ public class Menu {
 		System.out.println("1.- Gestionar Libros");
 		System.out.println("2.- Gestionar Socios");
 		System.out.println("3.- Gestionar Prestamos");
+		System.out.println("0.- SALIR");
 	}
 	
 	public static void mostrarmenuLibros() {
@@ -36,6 +37,7 @@ public class Menu {
 		System.out.println("2.- Eliminar Libros");
 		System.out.println("3.- Modificar libros");
 		System.out.println("4.- Ver libros");
+		System.out.println("0.- SALIR");
 		
 	}
 		
@@ -43,7 +45,9 @@ public class Menu {
 	System.out.println("Ver socios");	
 	System.out.println("1.- Insertar socios");
 	System.out.println("2.- Eliminar Socios");
-	System.out.println("3.- Ver socios");
+	System.out.println("3.- Modificar Socios");
+	System.out.println("4.- Ver socios");
+	System.out.println("0.- SALIR");
 }
 	
 

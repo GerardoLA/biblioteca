@@ -10,13 +10,14 @@ public class GestorBBDD extends Conector{
 	
 	public void insertarSocio(Socio socio) throws SQLException {
 		super.conectar();
-		pst = con.prepareStatement("INSERT INTO VALUES(null,?,?;?,?,?)");
+		pst = con.prepareStatement("INSERT INTO socios VALUES(null,?,?,?,?,?,?)");
 		
 		pst.setString(1,socio.getNombre());
-		pst.setString(2,socio.getDireccion());
-		pst.setString(3,socio.getPoblacion());
-		pst.setString(4,socio.getProvincia());
-		pst.setString(5,socio.getDni());
+		pst.setString(2, socio.getApellido());
+		pst.setString(3,socio.getDireccion());
+		pst.setString(4,socio.getPoblacion());
+		pst.setString(5,socio.getProvincia());
+		pst.setString(6,socio.getDni());
 		
 		pst.execute();
 		super.cerrar();	
@@ -26,6 +27,7 @@ public class GestorBBDD extends Conector{
 		super.conectar();
 		pst= con.prepareStatement("DELETE from socios where id=?");
 		pst.setInt(1, id);
+		pst.execute();
 		super.cerrar();
 	}
 	
@@ -34,7 +36,7 @@ public class GestorBBDD extends Conector{
 		pst = con.prepareStatement("INSERT INTO libros values(null,?,?,?)");
 		
 		pst.setString(1,libro.getTitulo());
-		pst.setString(2, libro.getTitulo());
+		pst.setString(2, libro.getAutor());
 		pst.setInt(3, libro.getNum_pag());
 		
 		pst.execute();
@@ -76,10 +78,10 @@ public class GestorBBDD extends Conector{
 		ResultSet resultado = pst.executeQuery(sentenciaSelect);
 		socio.setId(resultado.getInt(id));
 		socio.setNombre(resultado.getString("nombre"));
+		socio.setApellido(resultado.getString("apellido"));
 		socio.setDireccion(resultado.getString("direccion"));
 		socio.setPoblacion(resultado.getString("poblacion"));
 		socio.setProvincia(resultado.getString("provincia"));
-		
 		socio.setDni(resultado.getString("dni"));
 		super.cerrar();
 		
@@ -97,13 +99,17 @@ public class GestorBBDD extends Conector{
 		super.cerrar();
 	}
 	
-	public void modificarSocio(Socio socio) throws SQLException {
+	public void modificarSocio(Socio socio,int idSocio) throws SQLException {
 		super.conectar();
-		pst = con.prepareStatement("UPDATE socios set nombre=?,direccion=?,poblacion=?,provincia=?,dni=?");
+		pst = con.prepareStatement("UPDATE socios set nombre = ?,apellido = ?,direccion = ?,poblacion = ?,provincia = ?,dni = ? where id=?");
 		pst.setString(1, socio.getNombre());
-		pst.setString(2, socio.getDireccion());
-		pst.setString(3, socio.getPoblacion());
-		pst.setString(4, socio.getProvincia());
+		pst.setString(2, socio.getApellido());
+		pst.setString(3, socio.getDireccion());
+		pst.setString(4, socio.getPoblacion());
+		pst.setString(5, socio.getProvincia());
+		pst.setString(6, socio.getDni());
+		pst.setInt(7, idSocio);
+		pst.executeUpdate();
 		super.cerrar();
 	}
 	
@@ -126,6 +132,28 @@ public class GestorBBDD extends Conector{
 		return libros;
 		
 	}
+	
+	public ArrayList<Socio>getSocios() throws SQLException {
+		ArrayList<Socio>socios = new ArrayList<Socio>();
+		super.conectar();
+		String sentenciaSelect = "Select * from socios";
+		pst = con.prepareStatement(sentenciaSelect);
+		ResultSet resultado = pst.executeQuery();
+		
+		while(resultado.next()) {
+			Socio socio = new Socio();
+			socio.setId(resultado.getInt("id"));
+			socio.setNombre(resultado.getString("nombre"));
+			socio.setApellido(resultado.getString("apellido"));
+			socio.setDireccion(resultado.getString("direccion"));
+			socio.setPoblacion(resultado.getString("poblacion"));
+			socio.setDni(resultado.getString("dni"));
+			socios.add(socio);
+		}
+		super.cerrar();
+		return socios;
+	}
+	
 	
 	
 }
