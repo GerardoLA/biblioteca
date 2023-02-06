@@ -21,8 +21,7 @@ public class GestorBBDD extends Conector{
 		super.cerrar();
 	}
 	
-	pubic Prestamo getPrestamo
-	
+
 	public void devolverPrestamo(int id_Libro) throws SQLException {
 		super.conectar();
 		pst=con.prepareStatement("UPDATE set devuelto=? where id_Libro=? AND devuelto=?");
@@ -163,7 +162,6 @@ public class GestorBBDD extends Conector{
 		libro.setAutor(resultado.getString("autor"));
 		libro.setNum_pag(resultado.getInt("num_pag"));
 		super.cerrar();
-		
 		return libro;
 		
 	}
