@@ -24,7 +24,7 @@ public class GestorLibros {
 				
 				case Menu.MODIFICAR_LIBRO:
 					int idLibro = FormularioDeDatos.pedirIdLibro(scan);
-					libro=FormularioDeDatos.modificarDatos(libro, scan);
+					libro=FormularioDeDatos.modificarDatosLibro(libro, scan);
 					gestor.modificarLibro(libro,idLibro);
 					System.out.println("Libro modificado");
 					

@@ -1,7 +1,8 @@
 package biblioteca;
 
-import java.sql.Date;
+
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Scanner;
 
 public class FormularioDeDatos {
@@ -16,14 +17,22 @@ public class FormularioDeDatos {
 		
 		prestamo.setId_libro(pedirIdLibro(scan));
 		
-		System.out.println("Introduce la fecha: ");
-		prestamo.setFecha(fecha.parse(scan.nextLine()));
+		System.out.println("Introduce la fecha:(formato dd/mm/yyyy) ");
+		prestamo.setFecha(new Date());
+		prestamo.setDevuelto(false);//cuando se crea un prestamo nuevo,false hasta que se devuelva el libro.
 		
 		return prestamo;
 		
 	}
 	
-	public static Socio pedirDatos(Scanner scan) {
+	public static int pedirIdSocio(Scanner scan) {
+		System.out.println("Introduce Id de socio: ");
+		int id = Integer.parseInt(scan.nextLine());
+		
+		return id;
+	}
+	
+	public static Socio pedirDatosSocio(Scanner scan) {
 		Socio socio = new Socio();
 		
 		System.out.println("Introduce el nombre del socio: ");
@@ -47,37 +56,7 @@ public class FormularioDeDatos {
 		return socio;
 			}
 	
-	public static Libro pediDatosLibro(Scanner scan) {
-		Libro libro = new Libro();
-		
-		
-		System.out.println("Introduce el titulo del libro: ");
-		libro.setTitulo(scan.nextLine());
-		
-		System.out.println("Introduce el autor: ");
-		libro.setAutor(scan.nextLine());
-		
-		System.out.println("Introduce el número de páginas: ");
-		libro.setNum_pag(Integer.parseInt(scan.nextLine()));
-		
-		return libro;
-	}
-
-	public static Libro modificarDatos(Libro libro,Scanner scan) {
-		System.out.println("introduce el titulo nuevo");
-		libro.setTitulo(scan.nextLine());
-		
-		System.out.println("Introduce el autor nuevo");
-		libro.setAutor(scan.nextLine());
-		
-		System.out.println("Introduce el número de páginas" );
-		libro.setNum_pag(Integer.parseInt(scan.nextLine()));
-		
-		
-		return libro;
-	}
-	
-	public static Socio modificarDatos(Socio socio,Scanner scan) {
+	public static Socio modificarDatosSocio(Socio socio,Scanner scan) {
 		System.out.println("Introduce el nombre nuevo");
 		socio.setNombre(scan.nextLine());
 		
@@ -101,17 +80,46 @@ public class FormularioDeDatos {
 		return socio;
 	}
 	
-	public static int pedirIdSocio(Scanner scan) {
-		System.out.println("Introduce Id de socio: ");
-		int id = Integer.parseInt(scan.nextLine());
-		
-		return id;
-	}
-	
 	public static int pedirIdLibro(Scanner scan) {
 		System.out.println("Dime id del libro");
 		int id = Integer.parseInt(scan.nextLine()); //variable donde guardamos
 		
 		return id;
 	}
+	
+	
+	public static Libro pediDatosLibro(Scanner scan) {
+		Libro libro = new Libro();
+		
+		
+		System.out.println("Introduce el titulo del libro: ");
+		libro.setTitulo(scan.nextLine());
+		
+		System.out.println("Introduce el autor: ");
+		libro.setAutor(scan.nextLine());
+		
+		System.out.println("Introduce el número de páginas: ");
+		libro.setNum_pag(Integer.parseInt(scan.nextLine()));
+		
+		return libro;
+	}
+
+	public static Libro modificarDatosLibro(Libro libro,Scanner scan) {
+		System.out.println("introduce el titulo nuevo");
+		libro.setTitulo(scan.nextLine());
+		
+		System.out.println("Introduce el autor nuevo");
+		libro.setAutor(scan.nextLine());
+		
+		System.out.println("Introduce el número de páginas" );
+		libro.setNum_pag(Integer.parseInt(scan.nextLine()));
+		
+		
+		return libro;
+	}
+	
+
+
+	
+
 }
