@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class FormularioDeDatos {
 	
-	public static Prestamo pedirDatosPrestamo(Scanner scan) {
+	public static Prestamo getDatosDePrestamo(Scanner scan) {
 		Prestamo prestamo=new Prestamo();
 		SimpleDateFormat fecha = new SimpleDateFormat ("dd/MM/yyyy");
 				
@@ -15,7 +15,8 @@ public class FormularioDeDatos {
 		prestamo.setId_libro(pedirIdLibro(scan));
 		
 		
-		prestamo.setId_libro(pedirIdLibro(scan));
+		System.out.println("Introduce id del socio");
+		prestamo.setId_socio(pedirIdSocio(scan));
 		
 		System.out.println("Introduce la fecha:(formato dd/mm/yyyy) ");
 		prestamo.setFecha(new Date());

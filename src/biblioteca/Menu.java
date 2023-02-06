@@ -58,8 +58,9 @@ public class Menu {
 
 	
 	public static void  mostrarMenuPrestamo() {
-		System.out.println("Menu préstamos");
+			System.out.println("Menu préstamos");
 			System.out.println(" 1.- Realizar préstamo");
+			System.out.println(" 2.- Devolver préstamo");
 			System.out.println(" 0.- Salir");
 			
 		}

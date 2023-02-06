@@ -18,14 +18,14 @@ public class GestorSocios {
 			switch (opcion) {
 			case Menu.INSERTAR_SOCIO:
 				
-				socio = FormularioDeDatos.pedirDatos(scan);
+				socio = FormularioDeDatos.pedirDatosSocio(scan);
 				gestor.insertarSocio(socio);
 				System.out.println("Socio nuevo añadido");
 				break;
 				
 			case Menu.MODIFICAR_SOCIO:
 				int idSocio = FormularioDeDatos.pedirIdSocio(scan);
-				socio = FormularioDeDatos.modificarDatos(socio, scan);
+				socio = FormularioDeDatos.modificarDatosSocio(socio, scan);
 				gestor.modificarSocio(socio,idSocio);
 				System.out.println("Socio modificado");
 				
