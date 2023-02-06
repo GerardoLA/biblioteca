@@ -1,8 +1,27 @@
 package biblioteca;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
 import java.util.Scanner;
 
 public class FormularioDeDatos {
+	
+	public static Prestamo pedirDatosPrestamo(Scanner scan) {
+		Prestamo prestamo=new Prestamo();
+		SimpleDateFormat fecha = new SimpleDateFormat ("dd/MM/yyyy");
+				
+		System.out.println("Introduce la id del libro: ");
+		prestamo.setId_libro(pedirIdLibro(scan));
+		
+		
+		prestamo.setId_libro(pedirIdLibro(scan));
+		
+		System.out.println("Introduce la fecha: ");
+		prestamo.setFecha(fecha.parse(scan.nextLine()));
+		
+		return prestamo;
+		
+	}
 	
 	public static Socio pedirDatos(Scanner scan) {
 		Socio socio = new Socio();

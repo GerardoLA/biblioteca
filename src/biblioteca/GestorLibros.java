@@ -28,6 +28,8 @@ public class GestorLibros {
 					gestor.modificarLibro(libro,idLibro);
 					System.out.println("Libro modificado");
 					
+					/**/
+					
 					break;
 				case Menu.VER_LIBROS:
 					Visor.mostrarLibros(gestor.getLibros());
