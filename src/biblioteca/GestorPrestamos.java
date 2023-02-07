@@ -21,6 +21,7 @@ public class GestorPrestamos {
 			break;
 			
 		case Menu.DEVOLVER_PRESTAMO:
+			
 			gestor.devolverPrestamo(FormularioDeDatos.pedirIdLibro(scan));
 			break;
 		}

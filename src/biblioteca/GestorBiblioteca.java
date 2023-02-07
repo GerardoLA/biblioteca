@@ -23,7 +23,7 @@ public class GestorBiblioteca {
 				break;
 				
 			case Menu.GESTIONAR_PRESTAMOS:
-				
+				GestorPrestamos.run(scan);
 				break;
 			case Menu.SALIR:
 				System.out.println("ADIOS");

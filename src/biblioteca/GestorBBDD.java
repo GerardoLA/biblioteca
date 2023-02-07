@@ -15,7 +15,7 @@ public class GestorBBDD extends Conector{
 		pst.setInt(1, prestamo.getId_libro());
 		pst.setInt(2, prestamo.getId_socio());
 		pst.setDate(3, new Date(prestamo.getFecha().getTime()));
-		pst.setBoolean(4, prestamo.isDevuelto());
+		pst.setInt(4, prestamo.isDevuelto()== true ? 0:1);
 		pst.execute();
 		System.out.println("Prestamo apuntado");
 		super.cerrar();
@@ -24,10 +24,10 @@ public class GestorBBDD extends Conector{
 
 	public void devolverPrestamo(int id_Libro) throws SQLException {
 		super.conectar();
-		pst=con.prepareStatement("UPDATE set devuelto=? where id_Libro=? AND devuelto=?");
+		pst=con.prepareStatement("UPDATE prestamos set devuelto=true where id_Libro=? AND devuelto=?");
 		pst.setInt(1, 1);
 		pst.setInt(2, id_Libro);
-		pst.setBoolean(3, false);
+		/*pst.setInt(3, 0);*/
 		
 		pst.executeUpdate();
 		System.out.println("Prestamo devuelto");
